@@ -12,7 +12,6 @@ from langchain_core.vectorstores import InMemoryVectorStore # Simplified for exa
 from langchain.chains import RetrievalQA
 from langchain.agents import AgentExecutor, create_react_agent, Tool
 from langchain_core.prompts import PromptTemplate
-from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 
 # Environment variables
 MONGODB_URI = os.getenv("MONGODB_URI", "mongodb://mongodb:27017/")

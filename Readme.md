@@ -1,3 +1,26 @@
+# Multi Agent Solution Recipe 🍷
+
+Here you will find and agentic solution to read multiple sources in this case we use MogoDB and a Knowledge Base loaded from PDFs to a vector store. The Supervisor will call receipt to know the ingredients and mongoDB to know which of those are available. Only set your OPENAI_API_KEY on docker compose and build.
+
+## Tools Used
+* FastAPI
+* Langchain
+* Docker
+* OpenAI (Agents, Embeddings)
+* Gemini 2.5 + Cursor
+
+## Service Curl
+
+```
+curl --location 'localhost:8000/call' \
+--header 'Content-Type: application/json' \
+--data '{
+    "prompt":"Puedo hacer pasta carbonara?"
+}'
+```
+
+## Diagram
+
 ```mermaid
 graph TD
     subgraph "User Interaction"
@@ -28,12 +51,12 @@ graph TD
     RecipeKnowledgeBase --"Indexes content from"--> RecipePDFs;
     MongoDB --"Initialized by"--> AvailableIngredientsCSV;
 
-    classDef user fill:#ffdfba,stroke:#333,stroke-width:2px;
+    classDef user fill:#ffdfba,stroke:#333,stroke-width:2px,color:#000;
     class User user;
-    classDef app fill:#cce5ff,stroke:#333,stroke-width:2px;
+    classDef app fill:#cce5ff,stroke:#333,stroke-width:2px,color:#000;
     class APIServer,SupervisorAgent,ToolCheckInventory,ToolGetRecipe,RecipeKnowledgeBase app;
-    classDef service fill:#e6ffe6,stroke:#333,stroke-width:2px;
+    classDef service fill:#e6ffe6,stroke:#333,stroke-width:2px,color:#000;
     class MongoDB, service;
-    classDef datastyle fill:#lightgrey,stroke:#333,stroke-width:2px;
+    classDef datastyle fill:#lightgrey,stroke:#333,stroke-width:2px,color:#FFF;
     class RecipePDFs,AvailableIngredientsCSV datastyle;
 ``` 
