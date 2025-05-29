@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+pymongo
+langchain
+langchain-community
+# langchain-ollama # No longer using Ollama directly
+# ollama # No longer using Ollama directly
+langchain-openai # For Docker Model Runner (OpenAI compatible API)
+pypdf
+python-dotenv # For local development, if needed to load .env files 
